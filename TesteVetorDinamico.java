@@ -11,7 +11,7 @@ public class TesteVetorDinamico {
       v.adicionar(nota);
       v.exibir();
       System.out.println("=====================");
-      Thread.sleep(8000);
+      Thread.sleep(5000);
     }
 
   }  

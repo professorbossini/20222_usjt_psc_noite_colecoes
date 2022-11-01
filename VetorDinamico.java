@@ -9,10 +9,28 @@ public class VetorDinamico {
   }
 
   public void adicionar(int elemento){
-    if(!estaCheio()){
-      elementos[quantidade] = elemento;
-      quantidade += 1; //quantidade++;  
+    if(estaCheio())
+      aumentarCapacidade();
+    elementos[quantidade] = elemento;
+    quantidade += 1; //quantidade++;  
+  }
+
+  public void remover(){
+    if (!estaVazio())
+      quantidade--;
+  }
+
+  private void aumentarCapacidade(){
+    //1. alocar um vetor com o dobro da capacidade atual
+    int [] aux = new int[capacidade * 2];
+    //2.copiar todo mundo do vetor antigo para o novo
+    for (int i = 0; i < quantidade; i++ ){
+      aux[i] = elementos[i];
     }
+    //3. a variável elementos referencie o novo vetor
+    elementos = aux;
+    //4. ajustar a capacidade para que ela passe a valer o dobro
+    capacidade *= 2;
   }
 
   public void exibir(){
@@ -29,6 +47,10 @@ public class VetorDinamico {
     // if (capacidade == quantidade)
     //   return true;
     // return false;
+  }
+
+  public boolean estaVazio(){
+    return quantidade == 0;
   }
 
 }
