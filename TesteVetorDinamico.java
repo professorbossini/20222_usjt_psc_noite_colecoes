@@ -7,11 +7,19 @@ public class TesteVetorDinamico {
     //distribuição uniforme
     //[7, 10]: 0, 1, 2, ..., 9, 10
     while(true){
-      int nota = 7 + gerador.nextInt(4);
-      v.adicionar(nota);
+      boolean ehParaAdicionar = gerador.nextBoolean();
+      if (ehParaAdicionar){
+        System.out.println("Adicionando...");
+        int nota = 7 + gerador.nextInt(4);
+        v.adicionar(nota);
+      }
+      else{
+        System.out.println("Removendo...");
+        v.remover();
+      }
       v.exibir();
       System.out.println("=====================");
-      Thread.sleep(5000);
+      Thread.sleep(3000);
     }
 
   }  
